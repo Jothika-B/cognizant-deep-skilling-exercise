@@ -1,0 +1,29 @@
+class Vehicle(ABC):
+    """
+    Abstract base class for all vehicles.
+    Every vehicle must implement these methods.
+    """
+ 
+    @abstractmethod
+    def get_type(self) -> str:
+        pass
+ 
+    @abstractmethod
+    def get_fuel(self) -> str:
+        pass
+ 
+    @abstractmethod
+    def get_speed(self) -> int:
+        """Returns max speed in km/h"""
+        pass
+ 
+    def describe(self):
+        """Common method available to all vehicles."""
+        print(f"  Vehicle  : {self.get_type()}")
+        print(f"  Fuel     : {self.get_fuel()}")
+        print(f"  Max Speed: {self.get_speed()} km/h")
+
+output:
+Vehicle  : Car
+Fuel     : Petrol
+Max Speed: 180 km/h
