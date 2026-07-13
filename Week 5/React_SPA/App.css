@@ -1,0 +1,12 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+a {
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+button {
+  padding: 8px 15px;
+}
