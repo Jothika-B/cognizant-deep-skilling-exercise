@@ -1,0 +1,90 @@
+import { Component } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, RouterOutlet, RouterLink, RouterLinkActive, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+
+ 1. HOME COMPONENT (Demonstrating Data Binding)
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [FormsModule],
+  template: `
+    <h2>Home Component</h2>
+    <hr>
+
+    <h3>1. Interpolation</h3>
+    <p>Welcome back, <strong>{{ username }}</strong>!</p>
+
+    <h3>2. Property Binding</h3>
+    <img [src]="imageUrl" alt="Angular Logo" width="50"><br><br>
+    <button [disabled]="isDisabled">Disabled Button</button>
+
+    <h3>3. Event Binding</h3>
+    <button (click)="toggleButton()">Toggle the button above</button>
+
+    <h3>4. Two-Way Data Binding</h3>
+    <input type="text" [(ngModel)]="feedback" placeholder="Type something...">
+    <p>Live Preview: <em>{{ feedback }}</em></p>
+  `
+})
+export class HomeComponent {
+  username = 'Alex';
+  isDisabled = true;
+  imageUrl = 'https://angular.dev/assets/images/logos/angular/angular.svg';
+  feedback = 'Initial feedback';
+
+  toggleButton() {
+    this.isDisabled = !this.isDisabled;
+  }
+}
+
+ 2. ABOUT COMPONENT
+
+@Component({
+  selector: 'app-about',
+  standalone: true,
+  template: `
+    <h2>About Component</h2>
+    <p>This is a single-file Angular application showcasing Routing and Data Binding!</p>
+  `
+})
+export class AboutComponent {}
+
+ 3. MAIN APP ROOT COMPONENT
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  styles: [`
+    nav { background: #f4f4f4; padding: 15px; font-family: sans-serif; }
+    a { margin-right: 15px; text-decoration: none; color: #007bff; }
+    .active { font-weight: bold; color: #000; }
+    main { padding: 20px; font-family: sans-serif; }
+  `],
+  template: `
+    <nav>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+    </nav>
+
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  `
+})
+export class AppComponent {}
+
+ 4. ROUTING CONFIGURATION & BOOTSTRAP
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '**', redirectTo: 'home' }
+];
+
+bootstrapApplication(AppComponent, {
+  providers:
