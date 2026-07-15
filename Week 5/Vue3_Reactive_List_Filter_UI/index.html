@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue 3 Reactive List Filter</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <h2>Product List</h2>
+
+    <input
+        type="text"
+        v-model="search"
+        placeholder="Search product..."
+    >
+
+    <ul>
+        <li v-for="item in filteredItems" :key="item">
+            {{ item }}
+        </li>
+    </ul>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
