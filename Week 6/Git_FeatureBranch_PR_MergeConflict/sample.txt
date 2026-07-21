@@ -1,0 +1,6 @@
+Git Feature Branch Demo
+
+This file is used to demonstrate:
+- Feature Branch
+- Pull Request (PR)
+- Merge Conflict Resolution
