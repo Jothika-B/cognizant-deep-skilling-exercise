@@ -1,0 +1,30 @@
+# Code Review – Structured PR Comments
+
+## Objective
+Practice writing clear and constructive pull request (PR) review comments.
+
+### PR Comment 1 – Code Readability
+**File:** `login.py`  
+**Comment:**  
+The login function works correctly, but some variable names could be more descriptive. Using meaningful names will make the code easier to understand and maintain.
+
+---
+
+### PR Comment 2 – Input Validation
+**File:** `register.py`  
+**Comment:**  
+Please add input validation for empty username and password fields before processing the request. This will help prevent invalid data from being submitted.
+
+---
+
+### PR Comment 3 – Error Handling
+**File:** `database.py`  
+**Comment:**  
+Consider wrapping the database connection in a `try-except` block. This will handle unexpected errors gracefully and prevent the application from crashing.
+
+---
+
+## Learning Outcome
+- Improved code readability through meaningful naming.
+- Suggested better input validation for reliability.
+- Recommended proper error handling to improve application stability.
